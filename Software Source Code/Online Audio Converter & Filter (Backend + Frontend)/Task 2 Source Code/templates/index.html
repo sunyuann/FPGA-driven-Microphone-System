@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"> 
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" type="text/css" href="../static/index.css">
+
+    <style>
+      h1 {
+        color: blue;
+        font-family: "Verdana";
+        font-size: 300%;
+      
+      }
+
+      label {
+        font-family: "Copperplate";
+      }
+
+      p  {
+        color: red;
+        font-family: courier;
+        font-size: 160%;
+      }
+      </style>
+	</head>
+	
+	<body style="background-color:navy" >
+    
+    <center>
+      <h1 style="color: White;"> <i><strong>Team White</strong></i></h1>
+    </center>
+    <hr color="gold", width="3000">
+
+
+    <table bordercolor="yellow" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+      <tr >
+        <td bgcolor="indigo">
+          <form style="margin-left: 0%;" class="grid" action="/generator" method="POST">
+
+            <center>
+              <h1 style="color: white;" class="let_space">.WAV File Generator</h1>
+            </center> 
+      
+            {% if converted %}
+            
+              <script>
+                window.alert("File generated successfully.")
+              </script>
+              </center> 
+      
+            {% endif %}
+      
+            <label style ="color:white" for="src">Enter the data file name that you want to convert:</label>
+            <input type="text" id="src" name="src" value="e.g. data.txt">
+            <label style ="color:white" for="dst">Enter the name of your converted .wav file</label>
+            <input type="text" id="dst" name="dst" value="e.g. audio.wav"><br>
+          
+            <br>
+            <br>
+            <center><input type="submit" value="Convert It Now!"></center>
+            <br>
+            <br>
+            
+            
+      
+          </form>
+        </td>
+
+        <td bgcolor="purple">
+          <form style="" class="grid" action="/filter" method="POST">
+
+            <center>
+              <h1 style="color: white;" class="let_space">Audio Band Pass Filter</h1>
+            </center> 
+      
+            {% if low %}
+              <center>
+                <h4 style="color: green;" class="let_space">Audio successfully filtered to be between {{low}} Hz and {{high}} Hz!</h1>
+              </center> 
+              
+              
+              <script>
+                window.alert("Bandwidth filtered successfully.")
+              </script>
+      
+            {% endif %}
+            
+            
+            <label style ="color:white" for="src">Please enter the file name</label>
+            <input type="text" id="src" name="src" value="e.g. audio.wav">
+
+            <label style ="color:white" for="low">Select your low bandwidth:</label>
+            <input type="text" id="low" name="low" value="e.g. 100">
+            <label style ="color:white" for="high">Enter your high bandwidth</label>
+            <input type="text" id="high" name="high" value="e.g. 300"><br>
+            <center><input type="submit" value="Generate It Now!"></center>
+    
+          </form>
+        </td>
+
+        <td bgcolor="sapphire">
+          <form class="grid" action="/pitch" method="POST">
+
+            <center>
+              <h1 style="color: white;" class="let_space">Audio Tone Modifier</h1>
+            </center> 
+            <br>
+            <br>
+            <br>
+            {% if pitch %}
+              <script>
+                window.alert("Tone modified successfully.")
+              </script>
+              <center>
+                <h4 style="color: white;" class="let_space">Frequency has been changed to {{pitch}} Hz!</h1>
+              </center>
+      
+            {% endif %}
+            <label style ="color:white" for="src">Please enter the file name</label>
+            <input type="text" id="src" name="src" value="e.g. audio.wav">
+
+            <label style ="color:white" for="pitch">Set your tone:</label>
+            <input type="text" id="pitch" name="pitch" value="e.g. 200">
+            
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <center><input type="submit" value="Do It Now!"></center>
+              
+            
+      
+          </form>
+        </td>
+      </tr>
+    </table>
+
+    <hr color="gold", width="3000">
+    
+        <br>
+        <br>
+        <br>
+
+    </body>
+
+</html>

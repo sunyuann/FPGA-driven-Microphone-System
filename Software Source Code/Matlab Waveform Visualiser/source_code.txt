@@ -1,0 +1,6 @@
+
+codes for generating frequency domain waveform, must add the file in the path before run in Matlab
+
+[data,Fs] = audioread("sawtooth_test.wav");
+dataFFT = fft(data);
+plot(abs(data_fft(:,1)))
